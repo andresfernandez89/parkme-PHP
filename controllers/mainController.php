@@ -14,5 +14,3 @@ abstract class MainController {
     require_once("views/$controller/$template.php");
   }
 }
-
-?>

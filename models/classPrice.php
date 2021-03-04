@@ -1,22 +1,19 @@
 <?php
 
 class Price {
-    private const HALFHOUR = 50;
-    private const HOUR = 100;
-    private const DAY = 500;
-    private $time;
+    const HALFHOUR = 50;
+    const HOUR = 100;
+    const DAY = 500;
+    const MONTH = 500;
+    protected $SelectedTime;
+    protected $time;
 
-
-    public function getTime() {
-
+    public function setTimeCount($SelectedTime) {
+        $this->$SelectedTime = $SelectedTime;
     }
 
-    public function setTime($time) {
-        $this->time = $time;
-    }
-
-    public function getTime() {
-        return $this->time;
+    public function geTtimeCount() {
+        return $this->SelectedTime;
     }
 
     public function __set($property, $value) {
@@ -29,6 +26,22 @@ class Price {
         }
     }
 
-
-
-}
+    public function getPrecio($time) {
+        return $this->selectedTime * self::$time;
+        }
+    }
+    //public function getPrecioXhour() {
+    //    return $this->timeCount * self::HOUR;
+    //}
+//
+    //public function getPrecioXhalfHour() {
+    //    return $this->timeCount * self::HALFHOUR;
+    //}
+//
+    //public function getPrecioXday() {
+    //    return $this->timeCount * self::DAY;
+    //}
+    //public function getPrecioXmonth() {
+    //    return $this->timeCount * self::MONTH;
+    //}
+//
