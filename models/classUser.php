@@ -1,7 +1,6 @@
 <?php
 
-require_once('interADEuser.php');
-abstract class User implements ADEuser {
+abstract class User{
     protected $id;
     protected $picture;
     protected $name;
@@ -23,10 +22,4 @@ abstract class User implements ADEuser {
         $this -> mail = $mail; 
         $this -> city = $city; 
     }
-    abstract function add();
-    abstract function delete();
-    abstract function edit();
-
-    //abstract function search();
-    
 }

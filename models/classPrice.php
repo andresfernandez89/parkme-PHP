@@ -30,18 +30,3 @@ class Price {
         return $this->selectedTime * self::$time;
         }
     }
-    //public function getPrecioXhour() {
-    //    return $this->timeCount * self::HOUR;
-    //}
-//
-    //public function getPrecioXhalfHour() {
-    //    return $this->timeCount * self::HALFHOUR;
-    //}
-//
-    //public function getPrecioXday() {
-    //    return $this->timeCount * self::DAY;
-    //}
-    //public function getPrecioXmonth() {
-    //    return $this->timeCount * self::MONTH;
-    //}
-//
