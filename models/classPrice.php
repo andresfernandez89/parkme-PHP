@@ -5,16 +5,8 @@ class Price {
     const HOUR = 100;
     const DAY = 500;
     const MONTH = 500;
-    protected $SelectedTime;
-    protected $time;
-
-    public function setTimeCount($SelectedTime) {
-        $this->$SelectedTime = $SelectedTime;
-    }
-
-    public function geTtimeCount() {
-        return $this->SelectedTime;
-    }
+    private $SelectedTime;
+    static $time;
 
     public function __set($property, $value) {
         return $this -> $property = $value;
@@ -26,7 +18,7 @@ class Price {
         }
     }
 
-    public function getPrecio($time) {
+    public function getPrice($time) {
         return $this->selectedTime * self::$time;
         }
     }

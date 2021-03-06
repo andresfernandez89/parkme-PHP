@@ -1,5 +1,7 @@
 <?php
 
+require_once('classUser.php');
+
 class Vendor extends User {
     protected $comision;
     protected $parkingName;

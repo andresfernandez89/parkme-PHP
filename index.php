@@ -23,13 +23,13 @@ if(class_exists($controller)){
     echo "El modulo que intentas acceder no existe, lo escribiste bien?";
 }
 
-require_once('models/classPrice.php');
+/* require_once('models/classPrice.php');
 $andres = new Price();
-$andres -> timeCount = 4;
-$andres -> usuario = 'andres';
-echo $andres->usuario;
-echo '<br>';
-echo $andres->getPrecio('HOUR');
+$andres -> selectedTime = 5; */
 
+/* require_once('models/classVendor.php');
+//$clase = new Vendor(23, 'andres', 'fernandez', 'rosales', 223334444, 'andres_','foto', 34344220, 'mdp');
+$clase = new Vendor(23, 'andres', 'fernandez', 'rosales', 223334444, 'andres_','foto', 34344220, 'mdp');
+echo $clase ->name; */
 
 ?>

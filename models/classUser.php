@@ -11,15 +11,15 @@ abstract class User{
     protected $mail;
     protected $city;
 
-    public function __construct($id, $name, $lastname, $addres, $cel, $mail,$picture, $dni, $city) {
+    public function __construct($id, $name, $lastname, $addres, $cel, $mail, $picture, $dni, $city) {
         $this -> id = $id; 
-        $this -> picture = $picture; 
-        $this -> name = $name; 
-        $this -> lastname = $lastname; 
-        $this -> dni = $dni; 
-        $this -> addres = $addres; 
-        $this -> cel = $cel; 
-        $this -> mail = $mail; 
-        $this -> city = $city; 
+        $this -> picture = trim($picture,' '); 
+        $this -> name = ucwords($name); 
+        $this -> lastname = ucwords($lastname); 
+        $this -> dni = str_replace( ' ' , '' ,str_replace( '.' , '' , $dni));
+        $this -> addres = ucwords($addres); 
+        $this -> cel =  str_replace( ' ' , '' ,str_replace( '.' , '' , $cel));
+        $this -> mail = strtolower($mail); 
+        $this -> city = ucfirst($city); 
     }
 }
