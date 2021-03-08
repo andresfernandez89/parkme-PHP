@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #789;
+    font-family: Raleway, sans-serif;
+    text-rendering: optimizelegibility;
+    font-size: .875rem;
+}
+
+header {
+    position: relative;
+}
+
+.top-menu {
+    list-style: none;
+    padding-left: 0;
+    float: right;
+}
+.top-menu li {
+    display: inline-block;
+}
+.top-menu li a {
+    color: inherit;
+    padding: 0 12px;
+    display: block;
+}
+.header-top .dropdown:hover .dropdown-menu {
+    display: block;
+}
+.header-top .dropdown-menu {
+    border: 1px solid #494646;
+    margin-top: 0;
+    margin-left: -4px;
+}
+.header-top .dropdown-menu > li {
+    display: block;
+    border: none;
+}
+.contact-top {
+    list-style: none;
+    padding-left: 0;
+    float: left;
+}
+.contact-top li {
+    display: inline-block;
+}
+.contact-top li:first-child {
+    border-right: 1px solid #494646;
+}
+.contact-top li a {
+    color: inherit;
+    padding: 8px 12px;
+    display: block;
+    font-size: 14px;
+}
+.contact-top a:focus,
+.contact-top a:hover {
+    color: #beee48;
+}
+.contact-top .fa,
+.contact-top .fab {
+    margin-right: 5px !important;
+}
+.social-top {
+    list-style: none;
+    padding-left: 0;
+    float: right;
+}
+.social-top li {
+    display: inline-block;
+}
+.social-top li a {
+    color: inherit;
+    padding: 8px 12px;
+    display: block;
+    font-size: 14px;
+}
+.social-top a:focus,
+.social-top a:hover {
+    text-decoration: none;
+}
+.social-top .fa {
+    margin-right: 0 !important;
+}
+.top-menu a {
+    color: inherit;
+}
+.top-menu a:focus,
+.top-menu a:hover {
+    text-decoration: none;
+}
+.header-main {
+    width: 100%;
+    position: relative;
+    z-index: 1100;
+    background: #121e23;
+    box-shadow: 0 3px 0 0 rgba(214, 224, 230, 0.6);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.main-navigation {
+    position: relative;
+}
+.logo {
+    transition: all 0.3s ease-in-out;
+}
+.logo img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+    margin-left: 40px;
+}
+.header-main.shrink .logo {
+    line-height: 60px;
+    transition: all 0.3s ease-in-out;
+}
+.header-main.shrink .logo img {
+    transform: scale(0.8);
+}
+
+#img_user {
+    height: 128px;
+    width: 128px;
+}

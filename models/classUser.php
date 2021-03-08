@@ -6,20 +6,20 @@ abstract class User{
     protected $name;
     protected $lastname;
     protected $dni;
-    protected $addres;
+    protected $address;
     protected $cel;
-    protected $mail;
+    protected $email;
     protected $city;
 
-    public function __construct($id, $name, $lastname, $addres, $cel, $mail, $picture, $dni, $city) {
+    public function __construct($id, $picture, $name, $lastname, $dni, $address, $cel, $email, $city) {
         $this -> id = $id; 
         $this -> picture = trim($picture,' '); 
         $this -> name = ucwords($name); 
         $this -> lastname = ucwords($lastname); 
         $this -> dni = str_replace( ' ' , '' ,str_replace( '.' , '' , $dni));
-        $this -> addres = ucwords($addres); 
+        $this -> address = ucwords($address); 
         $this -> cel =  str_replace( ' ' , '' ,str_replace( '.' , '' , $cel));
-        $this -> mail = strtolower($mail); 
+        $this -> email = strtolower($email); 
         $this -> city = ucfirst($city); 
     }
 }

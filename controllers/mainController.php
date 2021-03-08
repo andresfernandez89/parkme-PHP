@@ -10,7 +10,8 @@ abstract class MainController {
     file_put_contents("data/$table.json", json_encode($array));
   }
 
-  protected function getView($controller, $template = NULL) {
+  protected function getView($controller, $template = NULL, $object) {
+    $object; // no funciona el objeto cuando quiero incorporarlo en vista
     require_once("views/$controller/$template.php");
   }
 }

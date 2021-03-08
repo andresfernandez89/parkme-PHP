@@ -8,7 +8,7 @@
     "address": "colon 2010",
     "cel": 2235988578,
     "city": "mar del plata",
-    "mail": "andres_f89@hotmail.com",
+    "email": "andres_f89@hotmail.com",
     "comision": 10,
     "parkingName": "mdq parking"
     },
@@ -21,7 +21,7 @@
         "address": "luro 2010",
         "cel": 2235988200,
         "city": "mar del plata",
-        "mail": "jose@hotmail.com",
+        "email": "jose@hotmail.com",
         "comision": 10,
         "parkingName": "mdq estacionamiento"
     },
@@ -34,7 +34,7 @@
         "address": "catamarca 2010",
         "cel": 2235988300,
         "city": "mar del plata",
-        "mail": "pedro@hotmail.com",
+        "email": "pedro@hotmail.com",
         "comision": 10,
         "parkingName": "mdq garage"
     },
@@ -47,7 +47,7 @@
         "address": "jujuy 2810",
         "cel": 2235988400,
         "city": "bariloche",
-        "mail": "micaela@hotmail.com",
+        "email": "micaela@hotmail.com",
         "comision": 10,
         "parkingName": "bariloche parking"
     },
@@ -60,7 +60,7 @@
         "address": "salta 500",
         "cel": 2235988500,
         "city": "salta",
-        "mail": "rocio@hotmail.com",
+        "email": "rocio@hotmail.com",
         "comision": 10,
         "parkingName": "salta parking"
     },
@@ -73,7 +73,7 @@
         "address": "colon 3456",
         "cel": 2235988600,
         "city": "cordoba",
-        "mail": "ramon@hotmail.com",
+        "email": "ramon@hotmail.com",
         "comision": 10,
         "parkingName": "cordoba parking"
     }
