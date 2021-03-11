@@ -1,6 +1,6 @@
 <?php
 
-require_once('classUser.php');
+require_once('user.php');
 
 class Vendor extends User {
     protected $comision;

@@ -7,8 +7,7 @@
                 <div class="card-body">
                     <div class="row mt-5">
                         <div class="form-group col-6 text-left">
-                        <form action="index.php" name="search" method="get">
-                            <input type="hidden" name="controller" value="vendors">
+                        <form action="process.php" name="search" method="get">
                             <input type="hidden" name="action" value="search">
                             <input type="text" class="form-control" name="keywords" placeholder="Ingrese las palabras clave (Nombre - Apellido)">
                             <input type="submit" class="btn btn-success mt-1" value="Buscar">
