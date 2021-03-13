@@ -1,4 +1,5 @@
 <?php
+
 class Price {
 
     private $place; // para cuando tengamos cocheras de diferentes lugares

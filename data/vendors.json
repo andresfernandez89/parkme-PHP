@@ -76,5 +76,18 @@
         "email": "ramon@hotmail.com",
         "comision": 10,
         "parkingName": "cordoba parking"
+    },
+    {
+        "id": "1007",
+        "picture": "https:\/\/www.fillmurray.com\/128\/128",
+        "name": "andres",
+        "lastname": "garcia",
+        "dni": "98665389",
+        "address": "rosales 2089",
+        "cel": "223444224",
+        "email": "stefano@gmail.com",
+        "city": "cordoba",
+        "comision": 10,
+        "parkingName": "stefano parking"
     }
 ]

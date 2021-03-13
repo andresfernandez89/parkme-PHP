@@ -1,19 +1,18 @@
 <?php
 
-require_once('price.php');
+require_once('Price.php');
 
-class ModalPrice {
+class PriceDAO {
 
-    const PRICES_FILE = '../data/prices.json';
+    const PRICES_FILE = '../Data/Prices.json';
 
-    public function getPathPrices(){
+    public function getPath(){
         $temp = file_get_contents(self::PRICES_FILE);
         return $prices = json_decode($temp, true);
     }
 
-
-    public function getPrices() {
-        $prices_temp = $this->getPathVendors();
+    public function getAll() {
+        $prices_temp = $this->getPath();
         $prices = array();
         foreach ($prices_temp as $time) {
             $price = new Price();

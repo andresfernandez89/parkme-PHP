@@ -35,31 +35,8 @@
                                         <th>Nombre Estacionamiento</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($object as $key => $vendor) {
-                                    ?>
-                                    <tr>
-                                        <td><img id="img_user" src="<?=$vendor->picture?>"></td>
-                                        <td><?=$vendor->id?></td>
-                                        <td><?=$vendor->name . ' ' . $vendor->lastname?></td>
-                                        <td><?=$vendor->dni?></td>
-                                        <td><?=$vendor->address?></td>
-                                        <td><?=$vendor->cel?></td>
-                                        <td><?=$vendor->email?></td>
-                                        <td><?=$vendor->city?></td>
-                                        <td><?=$vendor->comision?></td>
-                                        <td><?=$vendor->parkingName?></td>
-                                        <td>
-                                            <a href="index.php?controller=vendors&action=edit&id=<?=$key?>">Editar</a>
-                                            <a href="index.php?controller=vendors&action=delete&id=<?=$key?>">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
                             </table>
+                            <h4 class="text-center bold text-danger">No se encontraron resultados</h4>
                         </div>
                     </div>
                 </div>
