@@ -1,0 +1,74 @@
+[
+    {
+        "id": "3001",
+        "picture": "https:\/\/www.placecage.com\/128\/128",
+        "name": "julio",
+        "lastname": "cesar",
+        "dni": 3550010,
+        "address": "colon 2010",
+        "cel": 223598857,
+        "city": "mar del plata",
+        "email": "andres@hotmail.com",
+        "orders": 3
+    },
+    {
+        "id": "3002",
+        "picture": "https:\/\/www.fillmurray.com\/128\/128",
+        "name": "nicolas",
+        "lastname": "vareto",
+        "dni": 3550000,
+        "address": "luro 2010",
+        "cel": 223598820,
+        "city": "mar del plata",
+        "email": "jose.98@hotmail.com",
+        "orders": 5
+    },
+    {
+        "id": "3003",
+        "picture": "https:\/\/www.placecage.com\/128\/128",
+        "name": "damian",
+        "lastname": "dieguez",
+        "dni": 355003300,
+        "address": "catamarca 2010",
+        "cel": 223598830,
+        "city": "mar del plata",
+        "email": "pedro98@hotmail.com",
+        "orders": 1
+    },
+    {
+        "id": "3004",
+        "picture": "https:\/\/www.fillmurray.com\/128\/128",
+        "name": "damian",
+        "lastname": "garcia",
+        "dni": 3550000,
+        "address": "jujuy 2810",
+        "cel": 223598400,
+        "city": "bariloche",
+        "email": "mica@hotmail.com",
+        "orders": 2
+    },
+    {
+        "id": "3005",
+        "picture": "https:\/\/www.placecage.com\/128\/128",
+        "name": "rocio",
+        "lastname": "gomez",
+        "dni": 3500100,
+        "address": "salta 500",
+        "cel": 23588500,
+        "city": "salta",
+        "email": "roo@hotmail.com",
+        "orders": 2
+    },
+    {
+        "id": "3006",
+        "picture": "https:\/\/www.fillmurray.com\/128\/128",
+        "name": "walter",
+        "lastname": "peralta",
+        "dni": 35500400,
+        "address": "colon 3456",
+        "cel": 223988600,
+        "city": "cordoba",
+        "email": "walter@hotmail.com",
+        "orders": 3
+    }
+]

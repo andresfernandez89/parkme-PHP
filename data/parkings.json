@@ -1,0 +1,50 @@
+[
+    {
+        "id": "2001",
+        "picture": "https:\/\/www.placecage.com\/128\/128",
+        "own": "andres",
+        "address": "colon 2010",
+        "city": "mar del plata",
+        "parkingName": "mdq parking"
+    },
+    {
+        "id": "2002",
+        "picture": "https:\/\/www.fillmurray.com\/128\/128",
+        "own": "jose",
+        "address": "luro 2010",
+        "city": "mar del plata",
+        "parkingName": "mdq estacionamiento"
+    },
+    {
+        "id": "2003",
+        "picture": "https:\/\/www.placecage.com\/128\/128",
+        "own": "pedro",
+        "address": "catamarca 2010",
+        "city": "mar del plata",
+        "parkingName": "mdq garage"
+    },
+    {
+        "id": "2004",
+        "picture": "https:\/\/www.fillmurray.com\/128\/128",
+        "own": "micaela",
+        "address": "jujuy 2810",
+        "city": "bariloche",
+        "parkingName": "bariloche parking"
+    },
+    {
+        "id": "1005",
+        "picture": "https:\/\/www.placecage.com\/128\/128",
+        "own": "rocio",
+        "address": "salta 500",
+        "city": "salta",
+        "parkingName": "salta parking"
+    },
+    {
+        "id": "1006",
+        "picture": "https:\/\/www.fillmurray.com\/128\/128",
+        "own": "ramon",
+        "address": "colon 3456",
+        "city": "cordoba",
+        "parkingName": "cordoba parking"
+    }
+]

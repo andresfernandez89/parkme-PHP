@@ -1,10 +1,8 @@
 <?php
-//implements ADEuser
-
 require_once('MainController.php');
 require_once('./Models/VendorDAO.php');
 
-class VendorsController extends MainController {
+class VendorsController extends MainController implements ADEuser, SecondaryF{
     private $model;
     public function __construct() {
         $this->model = new VendorDAO();
@@ -13,49 +11,53 @@ class VendorsController extends MainController {
         $vendors = $this->model->getAll();
         $this-> getView('Vendors','list', $vendors);
     }
-    public function validate($id, $vendors) {
-        $temp = array_column($vendors, 'id'); // ver pq no toma el array column
-        if(!in_array($id, $temp)) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-
         
     public function add() {
-        $vendors = $this->model->getAll();
         $id = isset($_POST['id']) ? ($_POST['id']) : "";
-        if($this->validate($id, $vendors)) {
-
-            $picture = "https://www.fillmurray.com/128/128"; // despues aplicar upload
-            $name = isset($_POST['name']) ? ($_POST['name']) : "";
-            $lastname = isset($_POST['lastname']) ? ($_POST['lastname']) : "";
-            $dni = isset($_POST['dni']) ? ($_POST['dni']) : "";
-            $address = isset($_POST['address']) ? ($_POST['address']) : "";
-            $cel = isset($_POST['cel']) ? ($_POST['cel']) : "";
-            $email = isset($_POST['email']) ? ($_POST['email']) : "";
-            $city = isset($_POST['city']) ? ($_POST['city']) : "";
-            $comision = 10;
-            $parkingName = isset($_POST['parkingName']) ? ($_POST['parkingName']) : "";
-
-            $vendor_new = [
-                'id'=> $id,
-                'picture'=> $picture,
-                'name'=> $name,
-                'lastname'=> $lastname,
-                'dni'=> $dni,
-                'address'=> $address,
-                'cel'=> $cel,
-                'email'=> $email,
-                'city'=> $city,
-                'comision'=> $comision,
-                'parkingName'=> $parkingName
-            ];
-            $this->model->add($vendor_new);
-            $this->list();
-        }else{
-            echo "<h1>ERROR, DUPLICADO</h1>";
+        $picture = $this->model->uploadImg();
+        $name = isset($_POST['name']) ? ($_POST['name']) : "";
+        $lastname = isset($_POST['lastname']) ? ($_POST['lastname']) : "";
+        $dni = isset($_POST['dni']) ? ($_POST['dni']) : "";
+        $address = isset($_POST['address']) ? ($_POST['address']) : "";
+        $cel = isset($_POST['cel']) ? ($_POST['cel']) : "";
+        $email = isset($_POST['email']) ? ($_POST['email']) : "";
+        $city = isset($_POST['city']) ? ($_POST['city']) : "";
+        $comision = 10;
+        $parkingName = isset($_POST['parkingName']) ? ($_POST['parkingName']) : "";
+        $vendor_new = [
+                        'id'=> $id,
+                        'picture'=> $picture,
+                        'name'=> $name,
+                        'lastname'=> $lastname,
+                        'dni'=> $dni,
+                        'address'=> $address,
+                        'cel'=> $cel,
+                        'email'=> $email,
+                        'city'=> $city,
+                        'comision'=> $comision,
+                        'parkingName'=> $parkingName
+                        ];
+        $this->model->add($id,$vendor_new);
+        $this->list();
+        
+    }
+    function edit() { //tengo q terminar la funcionalidad
+        if(isset($_POST['id'])) {
+            $vendor_id = $_POST['id'];
+            $$vendors_temp = $this->model->getPath();
+            $tempId = array_search($vendor_id, array_column($vendors_temp, 'id'));
+                $vendors_temp[$tempId]['id'] = $_POST['id']; 
+                $vendors_temp[$tempId]['picture'] = [uploadImg()]; 
+                $vendors_temp[$tempId]['name'] = [isset($_POST['name']) ? ($_POST['name']) : ""];
+                $vendors_temp[$tempId]['lastname'] = [isset($_POST['lastname']) ? ($_POST['lastname']) : ""];
+                $vendors_temp[$tempId]['dni'] = [isset($_POST['dni']) ? ($_POST['dni']) : ""];
+                $vendors_temp[$tempId]['address'] = [isset($_POST['address']) ? ($_POST['address']) : ""];
+                $vendors_temp[$tempId]['cel'] = [isset($_POST['cel']) ? ($_POST['cel']) : ""];
+                $vendors_temp[$tempId]['email'] = [isset($_POST['email']) ? ($_POST['email']) : ""];
+                $vendors_temp[$tempId]['city'] = [isset($_POST['city']) ? ($_POST['city']) : ""];
+                $vendors_temp[$tempId]['comision'] = 10;
+                $vendors_temp[$tempId]['parkingName'] = $vendor[isset($_POST['parkingName']) ? ($_POST['parkingName']) : ""];
+            $this->model->edit($vendors_temp[$tempId]);
         }
     }
 

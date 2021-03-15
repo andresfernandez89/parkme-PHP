@@ -10,7 +10,8 @@ class VendorDAO {
         return $vendors_temp = json_decode($temp, true);
     }
 
-    public function arrayObjects($vendors_temp) {
+    public function getObj($vendors_temp) {
+        //$vendors_temp = $this->getPath();
         $vendors = array();
         foreach ($vendors_temp as $vend) {
             $vendor = new Vendor($vend['id'], $vend['picture'], $vend['name'], $vend['lastname'], $vend['dni'], $vend['address'], $vend['cel'], $vend['email'], $vend['city']);
@@ -23,19 +24,39 @@ class VendorDAO {
 
     public function getAll() {
         $vendors_temp = $this->getPath();
-        return $this->arrayObjects($vendors_temp);
+        asort($vendors_temp);
+        return $this->getObj($vendors_temp);
     }
 
-    public function add($vendor) {
+    public function validate($param1, $vendors) {
+        $temp = array_column($vendors, 'id'); // ver parametro cuando es objeto
+        if(!in_array($param1, $temp)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function add($id,$vendor) {
         $vendors_temp = $this->getPath();
-        array_push($vendors_temp, $vendor);
-        file_put_contents(self::VENDORS_FILE, json_encode($vendors_temp, JSON_PRETTY_PRINT));
+        if($this->validate($id, $vendors_temp)){
+            array_push($vendors_temp, $vendor);
+            file_put_contents(self::VENDORS_FILE, json_encode($vendors_temp, JSON_PRETTY_PRINT));
+        }else {
+            echo "<h1>ID DUPLICADO</h1>";
+        }
+    }
+
+    function edit($vendor_id) {
+        //tengo q terminarlo
     }
 
     public function delete($vendor_id) {
         $vendors_temp = $this->getPath();
-        if(in_array($vendor_id,array_keys($vendors_temp))){
-            unset($vendors_temp[$vendor_id]);
+        $tempId = array_search($vendor_id, array_column($vendors_temp, 'id'));
+        if(in_array($tempId,array_keys($vendors_temp))){
+            unlink($vendors_temp[$tempId]['picture']);
+            unset($vendors_temp[$tempId]);
             file_put_contents(self::VENDORS_FILE, json_encode($vendors_temp, JSON_PRETTY_PRINT));
         }
     }
@@ -50,7 +71,7 @@ class VendorDAO {
             array_push($newVendors, $vendors_temp[$value]);
         }
         $vendors = array_replace($vendors_temp, $newVendors);
-        return $this->arrayObjects($vendors);
+        return $this->getObj($vendors);
     }
 
     public function search($keywords) {
@@ -80,6 +101,31 @@ class VendorDAO {
             $temp = $vendors_temp[$value];
             array_push($search,$temp);
         }
-        return $this->arrayObjects($search);
+        return $this->getObj($search);
+    }
+
+    public function uploadImg() {
+        if ($_FILES["picture"]["error"] == UPLOAD_ERR_OK) {
+            $dir = 'Assets/Uploads/Pictures/';
+            $name_tmp = $_FILES["picture"]["tmp_name"];
+            $name_doc = $dir . basename($_FILES["picture"]["name"]);
+            $name_new = isset($_POST['id']) ? $dir . strtoupper($_POST['id']) : "";
+            if (isset($name_new)) {
+                $type_doc = strtolower(pathinfo($name_doc, PATHINFO_EXTENSION));
+                $name_new .= '.' . $type_doc;
+                if($type_doc === "jpg" || $type_doc === "png") {
+                    if(move_uploaded_file($name_tmp, $name_doc)) {
+                        rename($name_doc, $name_new);
+                        return $name_new;
+                    }else {
+                        return $msj='Hubo un error en la subida del archivo';
+                    }
+                } else {
+                    return $msj='Solo se admiten archivos jpg o png';
+                }
+            } else {
+                return $msj = "No se encontraron archivos.";
+            }
+        }
     }
 }
