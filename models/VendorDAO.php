@@ -4,10 +4,14 @@ require_once('Vendor.php');
 
 class VendorDAO {
     const VENDORS_FILE = 'Data/Vendors.json';
-
+    
     public function getPath(){
         $temp = file_get_contents(self::VENDORS_FILE);
         return $vendors_temp = json_decode($temp, true);
+    }
+
+    function putAll($vendors) {
+        file_put_contents(self::VENDORS_FILE, json_encode($vendors, JSON_PRETTY_PRINT));
     }
 
     public function getObj($vendors_temp) {
@@ -41,15 +45,12 @@ class VendorDAO {
         $vendors_temp = $this->getPath();
         if($this->validate($id, $vendors_temp)){
             array_push($vendors_temp, $vendor);
-            file_put_contents(self::VENDORS_FILE, json_encode($vendors_temp, JSON_PRETTY_PRINT));
+            putAll($vendors_temp);
         }else {
             echo "<h1>ID DUPLICADO</h1>";
         }
     }
 
-    function edit($vendor_id) {
-        //tengo q terminarlo
-    }
 
     public function delete($vendor_id) {
         $vendors_temp = $this->getPath();
@@ -57,7 +58,7 @@ class VendorDAO {
         if(in_array($tempId,array_keys($vendors_temp))){
             unlink($vendors_temp[$tempId]['picture']);
             unset($vendors_temp[$tempId]);
-            file_put_contents(self::VENDORS_FILE, json_encode($vendors_temp, JSON_PRETTY_PRINT));
+            putAll($vendors_temp);
         }
     }
 

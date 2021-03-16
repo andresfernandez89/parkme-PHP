@@ -41,23 +41,33 @@ class VendorsController extends MainController implements ADEuser, SecondaryF{
         $this->list();
         
     }
-    function edit() { //tengo q terminar la funcionalidad
+    function showEdit() {
+        if(isset($_GET)) {
+            $id = $_GET['id'];
+            $vendors = $this->model->getAll();
+            $vendor = $vendors[$id];
+            $this->getView('Vendors','edit', $vendor);
+        }
+    }
+    function edit() {
         if(isset($_POST['id'])) {
             $vendor_id = $_POST['id'];
-            $$vendors_temp = $this->model->getPath();
+            $vendors_temp = $this->model->getPath();
             $tempId = array_search($vendor_id, array_column($vendors_temp, 'id'));
-                $vendors_temp[$tempId]['id'] = $_POST['id']; 
-                $vendors_temp[$tempId]['picture'] = [uploadImg()]; 
-                $vendors_temp[$tempId]['name'] = [isset($_POST['name']) ? ($_POST['name']) : ""];
-                $vendors_temp[$tempId]['lastname'] = [isset($_POST['lastname']) ? ($_POST['lastname']) : ""];
-                $vendors_temp[$tempId]['dni'] = [isset($_POST['dni']) ? ($_POST['dni']) : ""];
-                $vendors_temp[$tempId]['address'] = [isset($_POST['address']) ? ($_POST['address']) : ""];
-                $vendors_temp[$tempId]['cel'] = [isset($_POST['cel']) ? ($_POST['cel']) : ""];
-                $vendors_temp[$tempId]['email'] = [isset($_POST['email']) ? ($_POST['email']) : ""];
-                $vendors_temp[$tempId]['city'] = [isset($_POST['city']) ? ($_POST['city']) : ""];
+                $vendors_temp[$tempId]['id'] = $vendor_id; 
+                $vendors_temp[$tempId]['picture'] = $this->model->uploadImg(); 
+                $vendors_temp[$tempId]['name'] = isset($_POST['name']) ? ($_POST['name']) : "";
+                $vendors_temp[$tempId]['lastname'] = isset($_POST['lastname']) ? ($_POST['lastname']) : "";
+                $vendors_temp[$tempId]['dni'] = isset($_POST['dni']) ? ($_POST['dni']) : "";
+                $vendors_temp[$tempId]['address'] = isset($_POST['address']) ? ($_POST['address']) : "";
+                $vendors_temp[$tempId]['cel'] = isset($_POST['cel']) ? ($_POST['cel']) : "";
+                $vendors_temp[$tempId]['email'] = isset($_POST['email']) ? ($_POST['email']) : "";
+                $vendors_temp[$tempId]['city'] = isset($_POST['city']) ? ($_POST['city']) : "";
                 $vendors_temp[$tempId]['comision'] = 10;
-                $vendors_temp[$tempId]['parkingName'] = $vendor[isset($_POST['parkingName']) ? ($_POST['parkingName']) : ""];
-            $this->model->edit($vendors_temp[$tempId]);
+                $vendors_temp[$tempId]['parkingName'] = isset($_POST['parkingName']) ? ($_POST['parkingName']) : "";
+            $this->model->putAll($vendors_temp);
+            $vendors = $this->model->getAll();
+            $this->getView('Vendors','list', $vendors);
         }
     }
 

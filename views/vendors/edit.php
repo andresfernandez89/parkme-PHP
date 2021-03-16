@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ParkMe</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="Assets/CSS/style.css">
-</head>
-<body>
-    <!-- Header Main Container -->
-    <div class="header-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 col-md-4">
-                    <div class="logo">
-                    <a href="index.php"><img src="Assets/Images/logo.png" alt="Globant"></a>
-                    </div>
-                </div>
-                <div class="col-6 col-md-8">
-                    <nav>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -34,64 +7,61 @@
                 <div class="card-body">
                     <div class="row mt-5">
                         <div class="col-12 col-md-10 offset-md-1">
-                            <form method="post" name="add" action="/Bootcamp-PHP/proyecto-final-parkme/index.php" enctype="multipart/form-data">
+                            <form method="post" name="edit" action="/Bootcamp-PHP/proyecto-final-parkme/index.php" enctype="multipart/form-data">
                                 <input type="hidden" name="controller" value="vendors">
-                                <input type="hidden" name="action" value="add">
+                                <input type="hidden" name="action" value="edit">
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
                                         <label for="id" class="col-form-label">Codigo</label>
-                                        <input type="number" class="form-control" id="id" name="id" readonly='readonly' />
+                                        <input type="number" class="form-control" id="id" name="id" value='<?=$object->id?>' readonly='readonly' />
                                     </div>
                                     <div class="form-group offset-1 col-md-6">
                                         <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
                                         <label for="picture" class="col-form-label">Imagen</label>
                                         <input type="file" class="form-control" id="picture" name="picture" />
                                     </div>
+                                    <img class="img_user offset-1" src="<?=$object->picture?>">
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="first_name" class="col-form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="first_name" name="first_name" tabindex="2" value="<?=$empleado['first_name']?>" required />
-                                    </div>
-                                    <div class="form-group col-md-4">
                                         <label for="name" class="col-form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="name" name="name" value=<?=""?> required />
+                                        <input type="text" class="form-control" id="name" name="name" tabindex="2" value="<?=$object->name?>" required />
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="lastname" class="col-form-label">Apellido</label>
-                                        <input type="text" class="form-control" id="lastname" name="lastname" value=<?=""?>"martinez" required />
+                                        <input type="text" class="form-control" id="lastname" name="lastname" value=<?="$object->lastname"?> required />
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="dni" class="col-form-label">DNI</label>
-                                        <input type="number" class="form-control" id="dni" name="dni" value=<?=""?>"33445678" required />
+                                        <input type="number" class="form-control" id="dni" name="dni" value=<?="$object->dni"?> required />
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="address" class="col-form-label">Direccion</label>
-                                        <input type="text" class="form-control" id="address" name="address" value=<?=""?>"Colon 2010" required />
+                                        <input type="text" class="form-control" id="address" name="address" value=<?="$object->address"?> required />
                                     </div>
                                     <div>
                                         <label for="cel" class="col-form-label">Celular</label>
-                                        <input type="number" class="form-control" id="cel" name="cel" value=<?=""?>"2236159080" required />
+                                        <input type="number" class="form-control" id="cel" name="cel" value=<?="$object->cel"?> required />
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="city" class="col-form-label">Ciudad</label>
-                                        <input type="text" class="form-control" id="city" name="city" value=<?=""?>"Mar del Plata" required />
+                                        <input type="text" class="form-control" id="city" name="city" value=<?="$object->city"?> required />
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <label for="email" class="col-form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" value=<?=""?>"jmdiaz@mail.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                                        <input type="email" class="form-control" id="email" name="email" value=<?="$object->email"?> required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                                     </div>
                                     <div class="form-group col-md-5">
                                         <label for="parkingName" class="col-form-label">Nombre de Estacionamiento</label>
-                                        <input type="text" class="form-control" id="parkingName" name="parkingName" value=<?=""?>"MDP Parking" required />
+                                        <input type="text" class="form-control" id="parkingName" name="parkingName" value=<?="$object->parkingName"?> required />
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="comision" class="col-form-label">comision</label>
-                                        <input type="number" class="form-control" id="comision" name="comision" value=<?=""?>"10" readonly='readonly'/>
+                                        <input type="number" class="form-control" id="comision" name="comision" value=<?="$object->comision"?> readonly='readonly'/>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -111,5 +81,3 @@
     </div>
     <!-- end row-->
 </div> <!-- container -->
-</body>
-</html>

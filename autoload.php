@@ -7,20 +7,20 @@
 
         spl_autoload_register('autoload');
 
-        if (isset($_POST['controller'])) {
+        if(isset($_POST['controller'])) {
             $controller = $_POST['controller'] . 'Controller';
-        } else if (isset($_GET['controller'])) {
+        }else if (isset($_GET['controller'])) {
             $controller = $_GET['controller'] . 'Controller';
-        } else {
-            $controller = "";
+        }else {
+            $controller = "VendorsController";
         }
 
-        if (isset($_POST['action'])) {
+        if(isset($_POST['action'])) {
             $action = $_POST['action'];
-        } else if (isset($_GET['action'])) {
+        }else if (isset($_GET['action'])) {
             $action = $_GET['action'];
-        } else {
-            $action = "";
+        }else {
+            $action = "list";
         }
 
         if(class_exists($controller)){
