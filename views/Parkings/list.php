@@ -1,21 +1,24 @@
-<div class="container">
+<div    >
     <h1 class="my-4">ESTACIONAMIENTOS
     <small>Secondary Text</small>
     </h1>
     <?php
-        foreach ($object as $key => $vendor) {
+        foreach ($object as $key => $parking) {
     ?>
     <div class="row">
-    <div class="col-md-7">
-        <a href="#">
-        <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-        </a>
+        <div class="col-md-7">
+            <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h3><?=$parking->parkingName?></h3>
+            <a class="btn btn-primary" href="#">View Project</a>
+        </div>
     </div>
-    <div class="col-md-5">
-        <h3>Project One</h3>
-        <a class="btn btn-primary" href="#">View Project</a>
-    </div>
-    </div>
+    <?php
+    }
+    ?>
     <hr>
     <!-- Pagination -->
     <ul class="pagination justify-content-center">

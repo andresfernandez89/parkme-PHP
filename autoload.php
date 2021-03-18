@@ -12,7 +12,7 @@
         }else if (isset($_GET['controller'])) {
             $controller = $_GET['controller'] . 'Controller';
         }else {
-            $controller = "VendorsController";
+            $controller = "SesionController";
         }
 
         if(isset($_POST['action'])) {
@@ -20,7 +20,7 @@
         }else if (isset($_GET['action'])) {
             $action = $_GET['action'];
         }else {
-            $action = "list";
+            $action = "login";
         }
 
         if(class_exists($controller)){
