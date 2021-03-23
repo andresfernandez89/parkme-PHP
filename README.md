@@ -1,6 +1,6 @@
 <strong>PARKME</strong>
 
-Sitio desarrollado a lo largo del curso de PHP.
+Sitio desarrollado a lo largo del Bootcamp de PHP.
 
 El proyecto es de una empresa que ofrece estacionamientos de forma online en diferentes lugares de Argentina. 
 
