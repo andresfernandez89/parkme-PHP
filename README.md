@@ -1,7 +1,5 @@
 <strong>PARKME</strong>
 
-<a href="https://andresfernandez89.github.io/bicirent-js/" target="_blank"><strong>Ver Proyecto</strong><a/>
-
 Sitio desarrollado a lo largo del curso de PHP.
 
 El proyecto es de una empresa que ofrece estacionamientos de forma online en diferentes lugares de Argentina. 
